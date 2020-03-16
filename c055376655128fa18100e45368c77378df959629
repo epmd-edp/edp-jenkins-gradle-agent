@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7ed6a7f_c0f4f699",
+        "filename": "Dockerfile",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000007
+      },
+      "writtenOn": "2020-03-16T09:14:30Z",
+      "side": 1,
+      "message": "Where is this ENV used?",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "c055376655128fa18100e45368c77378df959629",
+      "serverId": "0350cb7f-c1b1-4710-a647-f6632dbafb3c",
+      "unresolved": false
+    }
+  ]
+}
