@@ -18,12 +18,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM openshift/jenkins-slave-base-centos7:v3.11
+FROM epamedp/edp-jenkins-base-agent:1.0.0
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ENV GRADLE_VERSION=6.2.2 \
+ENV GRADLE_VERSION=6.4.1 \
     PATH=$PATH:/opt/gradle/bin
+
+USER root
 
 # Install Gradle
 RUN curl -skL -o /tmp/gradle-bin.zip https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
@@ -31,8 +33,9 @@ RUN curl -skL -o /tmp/gradle-bin.zip https://services.gradle.org/distributions/g
     unzip -q /tmp/gradle-bin.zip -d /opt/gradle && \
     ln -sf /opt/gradle/gradle-$GRADLE_VERSION/bin/gradle /usr/local/bin/gradle
 
-RUN yum remove java-1.8.0-openjdk-headless java-1.7.0-openjdk-headless java-1.7.0-openjdk java-1.7.0-openjdk-devel -y && \
-    yum install java-11-openjdk-devel.x86_64 -y
+RUN yum install java-11-openjdk-devel.x86_64 -y && \
+    rpm -V java-11-openjdk-devel.x86_64 && \
+    yum clean all -y
 
 WORKDIR $HOME/.gradle
 
