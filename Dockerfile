@@ -22,7 +22,7 @@ FROM epamedp/edp-jenkins-base-agent:1.0.0
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ENV GRADLE_VERSION=6.2.2 \
+ENV GRADLE_VERSION=6.1.1 \
     PATH=$PATH:/opt/gradle/bin
 
 USER root
